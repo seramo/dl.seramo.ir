@@ -1,0 +1,133 @@
+
+
+
+.hidden
+System Volume Information
+$RECYCLE.BIN
+$Recycle.Bin
+
+
+
+sudo apt-get install ubuntu-restricted-extras ttf-mscorefonts-installer git g++ nethogs pngquant 
+
+
+
+git clone https://github.com/fzerorubigd/persian-fonts-linux.git
+cd persian-fonts-linux
+./farsifonts.sh
+
+
+
+git clone https://github.com/ilius/starcal.git
+cd starcal
+sudo ./install-ubuntu
+
+
+
+sudo apt install goldendict
+sudo cp /usr/share/applications/goldendict.desktop ~/.config/autostart/
+sudo chown $USER:$USER ~/.config/autostart/goldendict.desktop
+
+
+
+sudo add-apt-repository ppa:atareao/telegram
+sudo apt-get update
+sudo apt-get install telegram
+
+
+
+sudo xed /etc/fstab
+blkid
+# other partitions 
+/dev/sda5 /media/SERAMO ntfs-3g rw,user,auto,fmask=000,dmask=000,uid=1000 0 0
+/dev/sda6 /media/PPICTURE ntfs-3g rw,user,auto,fmask=000,dmask=000,uid=1000 0 0
+/dev/sda7 /media/MUSIC ntfs-3g rw,user,auto,fmask=000,dmask=000,uid=1000 0 0
+
+
+
+xed ~/.bashrc
+alias dl='aria2c -c -x16 -s16 -j1 -k 1M -i /media/seramo/SeRaMo/Dl/Text/dl.txt -d /media/seramo/SeRaMo/Dl ; shutdown -P +1'
+alias bdl='aria2c -c -x16 -s16 -j1 -k 1M -i /media/seramo/SeRaMo/Dl/Text/dl.txt -d /media/seramo/SeRaMo/Dl > /media/seramo/SeRaMo/Dl/Text/dlog.txt ; shutdown -P +1'
+alias ldl='xed /media/seramo/SeRaMo/Dl/Text/dl.txt'
+alias dlog='tail -n 50 /media/seramo/SeRaMo/Dl/Text/dlog.txt'
+alias kdl='echo "mypass" | sudo -S pkill aria2c ; sleep 6 ; sudo shutdown -c'
+
+alias tm='echo "mypass" | sudo -S xed /etc/crontab'
+alias brc='xed ~/.bashrc'
+
+alias ga='git add'
+alias gb='git commit -m "First commit" ; git push origin gh-pages'
+
+alias ins='sudo apt install'
+alias rem='sudo apt remove'
+alias arem='sudo apt autoremove'
+alias purge='sudo apt purge'
+alias up='sudo apt update'
+alias upg='sudo apt upgrade'
+alias dupg='sudo apt dist-upgrade'
+
+alias sti='rm -r *_* ; mogrify -resize 512x512 *.png ; pngquant **.png --ext .png --force'
+
+alias rdl='rename 's/.part1$//' *'
+alias mdl='mv *.mp3 Music ; mv *.mp4 *.mkv *.mov Video ; mv *.zip *.rar *.7z Compressed'
+alias pdl='rename 's/_p30download.com.part1$//' * ; rm -rv ./*/*.url ./*/*pd.nfo ./*/pd.jpg'
+
+alias ns='notify-send'
+
+
+
+sudo xed /etc/crontab
+05  4    * * *    root  aria2c -c -x16 -s16 -j1 -k 1M -i /media/seramo/SeRaMo/Dl/Text/dl.txt -d /media/seramo/SeRaMo/Dl > /media/seramo/SeRaMo/Dl/Text/dlog.txt ; shutdown -P +1
+55  8    * * *    root  pkill aria2c
+
+
+
+xed /media/seramo/SeRaMo/Dl/Text/dl.txt
+
+
+
+timedatectl set-local-rtc 1
+
+
+
+sudo sh -c "echo 'in matn' >> inja"
+
+
+
+gsettings set org.cinnamon.desktop.background picture-uri  "file:///home/seramo/Pictures/0.jpg"
+
+
+
+(sleep 3;echo admin;sleep 3;echo mypass;sleep 3;echo reboot;sleep 3;) | telnet 192.168.1.1
+
+
+
+watch -n 1 lsof -i
+
+
+
+https://github.com/seramotk/tk
+git clone https://github.com/seramotk/tk
+cd tk
+git checkout -b gh-pages
+git add index.html
+git commit -m "First commit"
+git push origin gh-pages
+
+
+
+mogrify -resize 512x512 *.png
+convert -resize 512x512 *.png *.png
+
+
+
+pngquant **.png --ext .png --force
+pngquant 256 *.png
+
+
+
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt-get update
+sudo apt-get install -y boot-repair && boot-repair
+
+
